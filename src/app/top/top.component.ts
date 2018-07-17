@@ -6,4 +6,6 @@ import { Component } from '@angular/core';
     styleUrls: ['./top.component.css']
 })
 
-export class TopComponent { }
+export class TopComponent { 
+    public title: string = "Star Wars Quiz"
+}

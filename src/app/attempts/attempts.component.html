@@ -1,5 +1,6 @@
-<div class="d-flex justify-content-end">
-    <img src="/assets/emptyHeart.png">
-    <img src="/assets/filledHeart.png">
-    <img src="/assets/filledHeart.png">
-</div>
+    <!-- <img [src]="hearts[0].showHeart()">
+    <img [src]="hearts[1].showHeart()">
+    <img [src]="hearts[2].showHeart()"> -->
+
+    <img *ngFor="let heart of hearts" [src]='heart.showHeart()'/>
+

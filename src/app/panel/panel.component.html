@@ -3,48 +3,31 @@
     <div class="jumbotron">
         <div class="row">
             <div class="col-sm-6">
-                <app-progress></app-progress>
+                <app-progress [progress]="progress"></app-progress>
             </div>
             <div class="col-sm-6">
-                <app-attempts></app-attempts>
+                <div class="d-flex justify-content-end">
+                    <app-attempts [attempts]='attempts'></app-attempts>
+                </div>
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <h4>Answer the Question:</h4>
-                <p>Bla Bla Bla</p>
+                <h4> {{ instruction }} </h4>
+                <p> {{ roundQuestion.question }}</p>
                 <form>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="options" id="opt1" value="opt1">
-                        <label class="form-check-label" for="exampleRadios1" id="lblOpt1">
-                          Option 1
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="options" id="opt2" value="opt2">
-                        <label class="form-check-label" for="exampleRadios2" id="lblOpt2">
-                          Option 2
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="options" id="opt3" value="opt3">
-                        <label class="form-check-label" for="exampleRadios3" id="lblOpt3">
-                            Option 3
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="options" id="opt4" value="opt4">
-                        <label class="form-check-label" for="exampleRadios3" id="lblOpt4">
-                            Option 4
-                        </label>
-                      </div>
+                    <div class="form-group">
+                        <textarea class="form-control" rows="3" 
+                        (input)='updateAnswer($event)'
+                        [value]='answer'></textarea>
+                    </div>
                 </form>
             </div>
         </div>
         <div class="row">
             <div class="col">
                     <div class="d-flex justify-content-end">
-                            <button type="button" class="btn btn-primary btn-lg">Confirm Answer</button>
+                        <button type="button" class="btn btn-primary btn-lg" (click)="checkAnswer()">Confirm Answer</button>
                     </div>
             </div>
         </div>
