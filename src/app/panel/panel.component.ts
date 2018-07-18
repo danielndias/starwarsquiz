@@ -56,7 +56,7 @@ export class PanelComponent implements OnInit {
       //decrease the number of attempts available
       this.attempts--
 
-      if (this.attempts < 0 ) {
+      if (this.attempts == 0 ) {
         this.endGame.emit("defeat");        
       }
     }

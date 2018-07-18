@@ -1,6 +1,8 @@
 .navbar {
     background: #000 !important;
 }
-.navbar .h1 {
-    color: #ffff00;
+
+.navbar img {
+    width: 200px;
+    margin: auto;
 }
