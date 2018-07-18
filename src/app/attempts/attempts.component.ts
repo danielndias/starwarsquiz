@@ -10,8 +10,6 @@ import { Heart } from "../shared/heart.model"
 export class AttemptsComponent implements OnInit, OnChanges {
 
   @Input() public attempts: number;
-  
-  public currentRound: number = 0;
 
   public hearts: Heart[] = [
     new Heart(true),
@@ -25,7 +23,9 @@ export class AttemptsComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    console.log(this.attempts);
+    if (this.attempts != this.hearts.length) {
+      this.hearts[this.hearts.length - (this.attempts + 1)].filled = false;
+    }
   }
 
 }

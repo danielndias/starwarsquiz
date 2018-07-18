@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output} from '@angular/core';
 
 import { Question } from '../shared/question.model';
 import { QUESTIONS } from './q-and-a.mok';
@@ -21,6 +21,8 @@ export class PanelComponent implements OnInit {
 
   public attempts: number = 3;
 
+  @Output() public endGame = new EventEmitter();
+
   constructor() { 
     this.updateRound();
   }
@@ -39,19 +41,23 @@ export class PanelComponent implements OnInit {
       this.round++;
 
       //Updating the Progress
-      this.progress += 25;
-      console.log(this.progress);
+      this.progress += 100/this.questions.length;
 
       //Updating the Question
       this.updateRound();
+
+      //Checking if the game is over
+      if (this.round === 4) {
+        this.endGame.emit("victory");
+      }
 
       
     } else {
       //decrease the number of attempts available
       this.attempts--
 
-      if (this.attempts < 0) {
-        alert('you suck!');
+      if (this.attempts < 0 ) {
+        this.endGame.emit("defeat");        
       }
     }
 

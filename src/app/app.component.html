@@ -1,2 +1,35 @@
 <app-top></app-top>
-<app-panel></app-panel>
+<div *ngIf="gameInProgress; else gameOver">
+    <app-panel (endGame)="endGame($event)"></app-panel>
+</div>
+<ng-template #gameOver>
+    <div *ngIf="gameResult === 'defeat'; else winner">
+        <div class="row">
+            <div class="col-sm-3 gameOver defeat">
+                <h1>Game Over!</h1>
+                <img src="../assets/defeat.jpg">
+                <h2>You Lost!</h2> 
+                <button class="btnPlayAgain" (click)="restartGame()">
+                    Play Again
+                </button>
+            </div>
+        </div>
+    </div>
+    
+</ng-template>
+<ng-template #winner>
+    <div class="row">
+        <div class="col-sm-3 gameOver victory">
+            <h1>Congratulations!</h1>
+            <img src="../assets/victory.jpg">
+            <h2>You Won!</h2>
+            <button class="btnPlayAgain" (click)="restartGame()">
+                    Play Again
+            </button>
+        </div>
+    </div>
+</ng-template>
+
+
+
+
