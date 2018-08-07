@@ -1,6 +1,6 @@
 # StarWarsQuiz
 Star Wars Quiz game developed in Angular.  
-Visit [http://starwarsquiz.dndias.com](http://starwarsquiz.dndias.com) to play
+Visit [https://starwarsquiz.dndias.com](https://starwarsquiz.dndias.com) to play
 
 ## Authors
 * Daniel Dias
